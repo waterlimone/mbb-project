@@ -8,8 +8,11 @@
 #include <iostream>
 #include <string>
 
-class geneClass {
-  std::string header;
-  std::string body;
+namespace geneClass{
+  class gene {
+    std::string header;
+    std::string body;
 
-};
+  };
+
+}
