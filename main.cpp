@@ -11,16 +11,20 @@
 
 using namespace parse;
 
-int main(){
+void loadGenes(std::string fileName){
   std::vector<std::string>::iterator head;
   std::vector<std::string>::iterator body;
-  pFast melon = fasta("Data_RNA.fasta");
+  pFast melon = fasta(fileName);
 
   for(head = melon.head.begin(), body = melon.body.begin();
       head < melon.head.end(), body < melon.body.end(); head++, body++){
     std::cout << *head << std::endl;
     std::cout << *body << std::endl;
   }
+}
+
+int main(){
+  loadGenes("Data_RNA.fasta");
 
   return 0;
 }
