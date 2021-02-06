@@ -31,6 +31,7 @@ namespace parse {
   struct pFast{
     std::vector <std::string> head;
     std::vector <std::string> body;
+    int numFasta;
   };
 
 
@@ -41,6 +42,7 @@ namespace parse {
     int index = 0;
     std::string myLine;
     std::string tempStr = "";
+    melon.numFasta = arraySize;
 
     while(getline(inFile, myLine)){
       tempStr = myLine[0];

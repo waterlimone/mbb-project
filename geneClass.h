@@ -12,4 +12,4 @@ class geneClass {
   std::string header;
   std::string body;
 
-}
+};

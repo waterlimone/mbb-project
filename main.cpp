@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include "parser.h"
+#include "geneClass.h"
 
 using namespace parse;
 
@@ -15,6 +16,8 @@ void loadGenes(std::string fileName){
   std::vector<std::string>::iterator head;
   std::vector<std::string>::iterator body;
   pFast melon = fasta(fileName);
+  std::string headers[melon.numFasta];
+  std::string bodies[melon.numFasta];
 
   for(head = melon.head.begin(), body = melon.body.begin();
       head < melon.head.end(), body < melon.body.end(); head++, body++){
