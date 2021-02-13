@@ -19,17 +19,13 @@ std::vector<gene> genes;
 void loadGenes(std::string fileName){
   std::vector<std::string>::iterator head; //creates iterators for For Loop
   std::vector<std::string>::iterator body;
-  pFast melon = fasta(fileName); // melon passes back struct to be be fed to the class (gene)
+  pFast melon = fasta(fileName); // melon passes back strussct to be be fed to the class (gene)
   std::string headers[melon.numFasta]; //creates two arrays of correct size to be passed to the class (gene)
   std::string bodies[melon.numFasta];  //continued...
 
 // Creates an array of gene (name of the class)
   for(head = melon.head.begin(), body = melon.body.begin(); head < melon.head.end(), body < melon.body.end(); head++, body++){ //uses the iterator begin() to iterator end() to traverse the vector//
-
-    gene *bob = new gene(*head, *body);
-    genes.push_back(*bob);
-    delete bob;// might be needed not sure yet //
-
+    genes.push_back(gene(*head, *body));
   }
 }
 
