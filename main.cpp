@@ -24,9 +24,9 @@ void loadGenes(std::string fileName){
   std::string bodies[melon.numFasta];  //continued...
 
 // Creates an array of gene (name of the class)
-  for(head = melon.head.begin(), body = melon.body.begin(); head < melon.head.end(), body < melon.body.end(); head++, body++){ //uses the iterator begin() to iterator end() to traverse the vector//
-    genes.push_back(gene(*head, *body));
-  }
+    for(head = melon.head.begin(), body = melon.body.begin(); head < melon.head.end(), body < melon.body.end(); head++, body++){ //uses the iterator begin() to iterator end() to traverse the vector//
+        genes.push_back(gene(*head, *body));
+    }
 }
 
 int main(){
@@ -36,7 +36,7 @@ int main(){
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// IMPORTANT: Warning:                                                                                                                                                              //
+// IMPORTANT: Warning:                                                                                                                                                      //
 //           The genes contained in the gene class are going to be dynamically allocated with the term (new) because array size can not be determined before compile time.  //
 //              # Note: That in order to not have a memory leak I must at some point in main deallocate the memory. This can be done easily with a for loop running though  //
 //                      each object and deallocating them.                                                                                                                  //
