@@ -1,3 +1,3 @@
 #!/bin/bash
 
-g++ -o run.exe main.cpp
+g++ -o run.exe main.cpp parser.cpp
