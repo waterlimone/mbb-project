@@ -19,18 +19,27 @@ std::vector<gene> genes;
 void loadGenes(std::string fileName){
     std::vector<std::string>::iterator head; //creates iterators for For Loop
     std::vector<std::string>::iterator body;
-    pFast melon = fasta(fileName); // melon passes back structs to be be fed to the class (gene)
+    pFast *melon = fasta(fileName); // melon passes back structs to be be fed to the class (gene)
 
 // Creates an array of gene (name of the class)
-    for(head = melon.head->begin(), body = melon.body->begin(); body < melon.body->end(); head++, body++){ //uses the iterator begin() to iterator end() to traverse the vector //
+    for(head = melon->head->begin(), body = melon->body->begin(); body < melon->body->end(); head++, body++){ //uses the iterator begin() to iterator end() to traverse the vector //
         genes.emplace_back(gene(*head, *body)); // Passing pointers in order to keep memory in one place //
-        std::cout << *head << "\n";
-        std::cout << *body << "\n";
+        //std::cout << *head << "\n";
+        //std::cout << *body << "\n";
+    }
+    delete melon; // Deletes the memory stored in the melon struct //   
+}
+
+void freeGeneMemory(){
+    std::vector<gene>::iterator gene;
+    for(gene = genes.begin(); gene < genes.end(); gene++){
+        gene->freeMem();
     }
 }
 
 int main(int argc, char *argv[]){
     loadGenes(argv[1]);
+    freeGeneMemory();
     return 0; // returns 0 *why are u here lol* //
 }
 

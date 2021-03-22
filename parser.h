@@ -18,5 +18,5 @@ namespace parse {
   };
 
 
-  pFast fasta(std::string fileName);
+  pFast* fasta(std::string fileName);
 }

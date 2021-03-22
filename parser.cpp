@@ -28,7 +28,7 @@ namespace parse {
     return numGreater;
   }
 
-  pFast fasta(std::string fileName){
+  pFast* fasta(std::string fileName){
     pFast *melon = new pFast;
     std::ifstream inFile(fileName);
     int arraySize = numLines(fileName);
@@ -47,7 +47,7 @@ namespace parse {
            }
     }
     inFile.close();
-    return *melon;
+    return melon;
   }
 
 }

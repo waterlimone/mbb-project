@@ -25,6 +25,11 @@ namespace geneClass{
     std::string retBody(){
       return *body;
     }
+    
+    void freeMem(){
+        delete header;
+        delete body;
+    }
 
     void test(){
       std::cout << "This is a Header: " + *header << std:: endl;
