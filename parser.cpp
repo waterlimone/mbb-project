@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////
 // by: Cameron McIlvenna                                    //
 // date: 1/22/21                                            //
-// purpose: Fasta Parser Package Header                     //
+// purpose: Fasta Parser Package Implementation             //
 //////////////////////////////////////////////////////////////
 
 #pragma
@@ -29,25 +29,25 @@ namespace parse {
   }
 
   pFast fasta(std::string fileName){
-    pFast melon;
+    pFast *melon = new pFast;
     std::ifstream inFile(fileName);
     int arraySize = numLines(fileName);
     int index = 0;
     std::string myLine;
     std::string tempStr = "";
-    melon.numFasta = arraySize;
+    melon->numFasta = &arraySize;
 
     while(getline(inFile, myLine)){
       tempStr = myLine[0];
 
       if(tempStr.compare(">") == 0){
-        melon.head.push_back(myLine);
+        melon->head->push_back(myLine);
       }else{
-              melon.body.push_back(myLine);
+              melon->body->push_back(myLine);
            }
     }
     inFile.close();
-    return melon;
+    return *melon;
   }
 
 }

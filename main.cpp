@@ -15,24 +15,23 @@ using namespace geneClass;
 //Global Gene Vector//
 std::vector<gene> genes;
 
-//After parsing headers and bodies will be loaded into vector::genes for further procesing//
+// After parsing headers and bodies will be loaded into vector::genes for further procesing //
 void loadGenes(std::string fileName){
-  std::vector<std::string>::iterator head; //creates iterators for For Loop
-  std::vector<std::string>::iterator body;
-  pFast melon = fasta(fileName); // melon passes back structs to be be fed to the class (gene)
-  std::string headers[melon.numFasta]; //creates two arrays of correct size to be passed to the class (gene)
-  std::string bodies[melon.numFasta];  //continued...
+    std::vector<std::string>::iterator head; //creates iterators for For Loop
+    std::vector<std::string>::iterator body;
+    pFast melon = fasta(fileName); // melon passes back structs to be be fed to the class (gene)
 
 // Creates an array of gene (name of the class)
-    for(head = melon.head.begin(), body = melon.body.begin(); body < melon.body.end(); head++, body++){ //uses the iterator begin() to iterator end() to traverse the vector//
-        genes.push_back(gene(*head, *body));
+    for(head = melon.head->begin(), body = melon.body->begin(); body < melon.body->end(); head++, body++){ //uses the iterator begin() to iterator end() to traverse the vector //
+        genes.emplace_back(gene(*head, *body)); // Passing pointers in order to keep memory in one place //
         std::cout << *head << "\n";
+        std::cout << *body << "\n";
     }
 }
 
-int main(){
-  loadGenes("Data_RNA.fasta");
-  return 0; // returns 0 *why are u here lol* //
+int main(int argc, char *argv[]){
+    loadGenes(argv[1]);
+    return 0; // returns 0 *why are u here lol* //
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

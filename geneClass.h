@@ -11,23 +11,23 @@
 namespace geneClass{
   class gene {
   public:
-    std::string header;
-    std::string body;
+    std::string *header = new std::string;
+    std::string *body = new std::string;
     //Constructor Function
     gene(std::string head, std::string bod){
-      header = head;
-      body = bod;
+      *header = head;
+      *body = bod;
     }
 
     std::string retHead(){
-      return header;
+      return *header;
     }
     std::string retBody(){
-      return body;
+      return *body;
     }
 
     void test(){
-      std::cout << "This is a Header: " + header << std:: endl;
+      std::cout << "This is a Header: " + *header << std:: endl;
     }
 
   };
