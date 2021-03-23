@@ -12,9 +12,9 @@ namespace parse {
   int numLines(std::string fileName);
 
   struct pFast{
-    std::vector <std::string> *head = new std::vector <std::string>;
-    std::vector <std::string> *body = new std::vector <std::string>;
-    int *numFasta = new int;
+    std::vector <std::string> head;
+    std::vector <std::string> body;
+    int numFasta;
   };
 
 

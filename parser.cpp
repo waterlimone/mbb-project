@@ -5,6 +5,7 @@
 //////////////////////////////////////////////////////////////
 
 #pragma
+#include <iostream> 
 #include <fstream>
 #include <string>
 #include <vector>
@@ -25,26 +26,30 @@ namespace parse {
       }
     }
     inFile.close();
+    std::cout << "File Size: " << (numGreater/2) << " sequences\n";
     return numGreater;
   }
 
   pFast* fasta(std::string fileName){
+    std::cout << "Processing FASTA" << "\n";
     pFast *melon = new pFast;
     std::ifstream inFile(fileName);
-    int arraySize = numLines(fileName);
-    int index = 0;
+    float arraySize = numLines(fileName);
     std::string myLine;
     std::string tempStr = "";
-    melon->numFasta = &arraySize;
+    melon->numFasta = arraySize;
+    std::cout << "Creating Struct\n";
 
     while(getline(inFile, myLine)){
-      tempStr = myLine[0];
+        tempStr = myLine[0];
 
-      if(tempStr.compare(">") == 0){
-        melon->head->push_back(myLine);
-      }else{
-              melon->body->push_back(myLine);
-           }
+        if(tempStr.compare(">") == 0){
+            //std::cout << myLine << "\n";
+            melon->head.push_back(myLine);
+        }else{
+            //std::cout << myLine << "\n";
+            melon->body.push_back(myLine);
+             }
     }
     inFile.close();
     return melon;
