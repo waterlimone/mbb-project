@@ -12,15 +12,25 @@
 using namespace parse;
 //Global Gene Vector//
 
-// After parsing headers and bodies will be loaded into vector::genes for further procesing //
-void loadGenes(std::string fileName){
-    pFast *melon = fasta(fileName); // melon passes back structs to be be fed to the class (gene)
-    std::cout << "Memory Freed" << "\n";
-    delete melon; // Deletes the memory stored in the melon struct //   
+// Loads genes into structs for processing //
+void loadGenes(std::string fileName, std::string mode){
+    if(mode.compare("--fasta") || mode.compare("-f")){ 
+        pFast *melon = fasta(fileName); // fasta() passes back pFast struct 'melon' containing genes //
+        std::cout << "Memory Freed" << "\n";
+        delete melon; // Deletes the memory stored in the melon struct //   
+    }
 }
 
 int main(int argc, char *argv[]){
-    loadGenes(argv[1]);
+    if(argv[1] == NULL){
+        std::cout << "You didn't enter a file path.\n";
+        return 1;
+    }
+    if(argv[2] == NULL){
+        std::cout << "Please include '-?' option for file option.\n";
+        return 2;
+    }
+    loadGenes(argv[1], argv[2]);
     std::cout << "Ending Gracefully" << "\n";
     return 0; // returns 0 *why are u here lol* //
 }
