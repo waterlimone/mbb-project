@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////// 
 // by: Cameron McIlvenna                                    //
 // date: 1/22/21                                            //
 // purpose: A c++ implementation of the python RNA aligner  //
@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include "parser.h"
+#include "parseQ.h"
 
 using namespace parse;
 //Global Gene Vector//
@@ -18,6 +19,11 @@ void loadGenes(std::string fileName, std::string mode){
         pFast *melon = fasta(fileName); // fasta() passes back pFast struct 'melon' containing genes //
         std::cout << "Memory Freed" << "\n";
         delete melon; // Deletes the memory stored in the melon struct //   
+    }
+    if(mode.compare("--fastq") || mode.compare("-q")){
+        pFastQ *lime = fastQ(fileName);
+        std::cout << "Memory Freed" << "\n";
+        delete lime;
     }
 }
 
