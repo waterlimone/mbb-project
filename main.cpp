@@ -38,7 +38,6 @@ int main(int argc, char *argv[]){
     }
     loadGenes(argv[1], argv[2]);
     std::cout << "Ending Gracefully" << "\n";
-    while(true){}
     return 0; // returns 0 *why are u here lol* //
 }
 

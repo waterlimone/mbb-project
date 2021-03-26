@@ -9,15 +9,14 @@
 
 namespace parse {
 
-  int numLinesQ(std::string fileName);
+    int numLinesQ(std::string fileName);
 
-  struct pFastQ{
-    std::vector <std::string> seqID;
-    std::vector <std::string> seqBody;
-    std::vector <std::string> seqQual;
-    std::vector <std::string> seqEtc;
-    int numFastQ;
-  };
+    struct pFastQ{
+            std::vector <std::string> *seqID = new std::vector <std::string>;
+            std::vector <std::string> *seqBody = new std::vector <std::string>;
+            std::vector <std::string> *seqQual = new std::vector <std::string>;
+        ~pFastQ(){ delete seqID; delete seqBody; delete seqQual; } 
+    };
 
 
   pFastQ* fastQ(std::string fileName);
