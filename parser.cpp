@@ -26,7 +26,7 @@ namespace parse {
       }
     }
     inFile.close();
-    std::cout << "File Size: " << (numGreater/2) << " sequences\n";
+    std::cout << "File Size: " << numGreater << " sequences\n";
     return numGreater;
   }
 

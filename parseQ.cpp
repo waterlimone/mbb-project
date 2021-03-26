@@ -26,7 +26,7 @@ namespace parse {
       }
     }
     inFile.close();
-    std::cout << "File Size: " << (numGreater/2) << " sequences\n";
+    std::cout << "File Size: " << numGreater << " sequences\n";
     return numGreater;
   }
 
@@ -44,16 +44,16 @@ namespace parse {
         tempStr = myLine[0];
 
         if(tempStr.compare("@") == 0){
-            std::cout << myLine << "\n";
+            //std::cout << myLine << "\n";
             lime->seqID.push_back(myLine);
         }else if(tempStr.compare("A") || tempStr.compare("T") || tempStr.compare("G") || tempStr.compare("C")){
-            std::cout << myLine << "\n";
+            //std::cout << myLine << "\n";
             lime->seqBody.push_back(myLine);
         }else if(tempStr.compare("+")){
-            std::cout << myLine << "\n";
+            //std::cout << myLine << "\n";
             lime->seqEtc.push_back(myLine);
         }else{
-            std::cout << myLine << "\n";
+            //std::cout << myLine << "\n";
             lime->seqQual.push_back(myLine);
         }
     }

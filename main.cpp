@@ -12,15 +12,15 @@
 
 using namespace parse;
 //Global Gene Vector//
-
+bool debug = false;
 // Loads genes into structs for processing //
 void loadGenes(std::string fileName, std::string mode){
-    if(mode.compare("--fasta") || mode.compare("-f")){ 
+    if(mode.compare("--fasta") == 0 || mode.compare("-f") == 0){ 
         pFast *melon = fasta(fileName); // fasta() passes back pFast struct 'melon' containing genes //
         std::cout << "Memory Freed" << "\n";
         delete melon; // Deletes the memory stored in the melon struct //   
     }
-    if(mode.compare("--fastq") || mode.compare("-q")){
+    if(mode.compare("--fastq") == 0 || mode.compare("-q") == 0){
         pFastQ *lime = fastQ(fileName);
         std::cout << "Memory Freed" << "\n";
         delete lime;
@@ -38,6 +38,7 @@ int main(int argc, char *argv[]){
     }
     loadGenes(argv[1], argv[2]);
     std::cout << "Ending Gracefully" << "\n";
+    while(true){}
     return 0; // returns 0 *why are u here lol* //
 }
 
