@@ -14,10 +14,11 @@ namespace parse {
   struct pFast{
         std::vector <std::string> *head =  new std::vector <std::string>;
         std::vector <std::string> *body = new std::vector <std::string>;
-        int *numFasta = new int; 
     ~pFast(){ delete head; delete body; }
   };
 
 
   pFast* fasta(std::string fileName);
+  
+  parse::pFast* alignSequence(struct parse::pFast inStruct);
 }
